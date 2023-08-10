@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:meals/models/meal.dart';
 import 'package:meals/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -33,13 +34,16 @@ class MealItem extends StatelessWidget {
         },
         child: Stack(
           children: [
-            FadeInImage(
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
-              placeholder: MemoryImage(kTransparentImage),
-              image: AssetImage(meal.imageUrl),
-              // image:AssetImage(''),
+            Hero(
+              tag: meal.id,
+              child: FadeInImage(
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
+                placeholder: MemoryImage(kTransparentImage),
+                image: AssetImage(meal.imageUrl),
+                // image:AssetImage(''),
+              ),
             ),
             Positioned(
               right: 0,
